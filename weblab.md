@@ -253,7 +253,8 @@ Open IIS Manager.
 Select Default Web Site.
 Explore the default settings and configurations.
 Test the default site by navigating to http://localhost in a web browser. You should see a webpage similar to the one below.
-![[CIT35600-Lab-IISdefaultPage.png]]
+![attachments[CIT35600-Lab-IISdefaultPage.png]]
+
 
 In IIS Manager, in the list of sites on the left pane, click **Default Web Site**. In the Actions panel under Manage Website, select the Stop option to turn off this website.
 ## 01 Deploying a Website

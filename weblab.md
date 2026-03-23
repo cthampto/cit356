@@ -193,7 +193,7 @@ httpd.serve_forever()
 Open a browser and navigate to different paths or use the curl command in a terminal. You should be able to observe the status codes returned and content types.
 
 Using the browser Inspect Element to view the sites information:
-![[CIT35600-Lab-BrowserInspectElement.png]]
+![](attachments/CIT35600-Lab-BrowserInspectElement.png)
 
 Expected output of the response type of an html file with the Content-Type as text/html:
 <pre>
@@ -235,13 +235,13 @@ Select Role-based or feature-based installation.
 Choose the appropriate server.
 Select Web Server (IIS) and complete the installation process.
 Verify the installation by accessing the default IIS welcome page.
-![[CIT35600-Lab-IIS.png]]
+![](attachments/CIT35600-Lab-IIS.png)
 ### Web Root Directory
 Open IIS Manager.
 Navigate to Sites and select Default Web Site.
 Note the Physical Path (usually C:\inetpub\wwwroot).
 You can place your web content in this directory to serve it via IIS.
-![[CIT35600-Lab-IISRoot.png]]
+![](attachments/CIT35600-Lab-IISRoot.png)
 ### Web Logs
 In IIS Manager, select your site.
 Click on Logging in the Features View.
@@ -253,7 +253,7 @@ Open IIS Manager.
 Select Default Web Site.
 Explore the default settings and configurations.
 Test the default site by navigating to http://localhost in a web browser. You should see a webpage similar to the one below.
-![attachments[CIT35600-Lab-IISdefaultPage.png]]
+![](attachments/CIT35600-Lab-IISdefaultPage.png)
 
 
 In IIS Manager, in the list of sites on the left pane, click **Default Web Site**. In the Actions panel under Manage Website, select the Stop option to turn off this website.
@@ -295,13 +295,13 @@ When creating SSL/TLS self-signed certificates in IIS, you have the option to st
 
 ### Using IIS Manager to make a self signed for the system
 Open IIS Manager and on the left pane with the connections, select your server. Then in the middle pane under the IIS section, select Server Certificates.
-![[CIT35600-Lab-IISserverCerts.png]]
+![](attachments/CIT35600-Lab-IISserverCerts.png)
 
 Under Actions on the far right pane, choose **Create Self-Signed Certificate...**
-![[CIT35600-Lab-IIS-createSelfSign.png]]
+![](attachments/CIT35600-Lab-IIS-createSelfSign.png)
 
 The Create Self-Signed wizard will start and you can choose **localhost** for now for the friendly name. You will also notice the options on where to store the certificate, The **Personal** option is good for now.
-![[CIT35600-Lab-IIS-SelfSignFriendly.png]]
+![](attachments/CIT35600-Lab-IIS-SelfSignFriendly.png)
 
 Once you push **OK** the certificate will be generated and should see if in the Server Certificates. You will notice it Issues this certificate to the local system by it's name in the Issued To column.
 
@@ -373,7 +373,7 @@ Open IIS Manger and create a new site called **mylocaldomain.local** and ensure 
 Add a Site Binding for HTTPS and ensure you have the Host name specified and the Require Server Name Indication checked. You will also need to select the SSL Certificate that was generated from the PowerShell New-SelfSignedCertificate cmdlet.
 
 The bindings should look like the below image.
-![[CIT35600-Lab-IISmylocaldomainBindings.png]]
+![](attachments/CIT35600-Lab-IISmylocaldomainBindings.png)
 
 Navigate to the name in a web browser on both HTTP and HTTPS. 
 
@@ -385,7 +385,7 @@ Application Pools in IIS are used to isolate web applications for better perform
 If you wish to create a separate application pool, you can do this in the IIS Manager. Select Application Pools in the Connections section and the the Add Application Pool...
 
 You can then give it a name and change settings such as .NET CLR version or Managed pipeline mode. 
-![[CIT35600-Lab-IISnewAppPool.png]]
+![](attachments/CIT35600-Lab-IISnewAppPool.png)
 
 Once it's created you should see the new Application Pool in the list of Application Pools.
 
@@ -395,7 +395,7 @@ Virtual Directories in IIS allow administrators to create directories that map t
 Within IIS Manager, go to one of your sites that are active. You will see an option in the Actions pane on the right called **View Virtual Directories**. Select this option and then choose Add Virtual Directory...
 
 You will give the Alias and the Physical path. In this example we are using the alias files and the path C:\inetpub\wwwroot\files
-![[CIT35600-Lab-IISvirtDirs.png]]
+![](attachments/CIT35600-Lab-IISvirtDirs.png)
 
 You will need to create a index.html file within the folder with content. Once you do you should be able to go to the URL/files to view the content. In this example it would be http://mylocaldomain.local/files
 
@@ -420,19 +420,19 @@ Request URL: Matches the Pattern
 Using: Regular Expressions
 Pattern: (.\*)
 Ignore case: checked
-![[CIT35600-Lab-IISrewriteMatch.png]]
+![](attachments/CIT35600-Lab-IISrewriteMatch.png)
 **Conditions:**
 Add and use the following options:
 Condition input: {HTTPS}
 Check if input string: Matches the Pattern
 Pattern: ^OFF$
-![[CIT35600-Lab-IISrewriteCondition.png]]
+![](attachments/CIT35600-Lab-IISrewriteCondition.png)
 **Action:**
 Action Type: Redirect
 Redirect URL: https://{HTTP_HOST}{REQUEST_URI}
 Append query string: unchecked
 Redirect type: Permanent (301)
-![[CIT35600-Lab-IISrewriteAction.png]]
+![](attachments/CIT35600-Lab-IISrewriteAction.png)
 
 Once done apply the rule, restart the website and navigate to the site with HTTP. It should redirect you to the HTTPS version. 
 

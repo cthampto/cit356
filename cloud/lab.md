@@ -77,7 +77,7 @@ Create docker-compose.yml file with the following contents
 <pre>
 services:
   localstack:
-    image: localstack/localstack:latest
+    image: localstack/localstack:4.14
     container_name: localstack1
     ports:
       - "4566:4566"          # Main LocalStack endpoint
